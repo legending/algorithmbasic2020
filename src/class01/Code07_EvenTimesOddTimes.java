@@ -1,8 +1,12 @@
 package class01;
 
+/*
+* 有n个数根据数字出现的类型分类
+* */
+
 public class Code07_EvenTimesOddTimes {
 
-	// arr中，只有一种数，出现奇数次
+	// arr中，只有一种数，出现奇数次，求这个这个数是多少
 	public static void printOddTimesNum1(int[] arr) {
 		int eor = 0;
 		for (int i = 0; i < arr.length; i++) {
@@ -11,7 +15,7 @@ public class Code07_EvenTimesOddTimes {
 		System.out.println(eor);
 	}
 
-	// arr中，有两种数，出现奇数次
+	// arr中，有两种数，出现奇数次，其他的数都只出现了偶数次，求这个两种数的值
 	public static void printOddTimesNum2(int[] arr) {
 		int eor = 0;
 		for (int i = 0; i < arr.length; i++) {
@@ -31,10 +35,11 @@ public class Code07_EvenTimesOddTimes {
 				onlyOne ^= arr[i];
 			}
 		}
+		//a^b=c, 则a=b^c
 		System.out.println(onlyOne + " " + (eor ^ onlyOne));
 	}
 
-	
+	//计算一个二进制数中1的个数
 	public static int bit1counts(int N) {
 		int count = 0;
 		
@@ -42,9 +47,7 @@ public class Code07_EvenTimesOddTimes {
 		//   000000010000     1
 		
 		//   011011000000
-		// 
-		
-		
+		//
 		
 		while(N != 0) {
 			int rightOne = N & ((~N) + 1);

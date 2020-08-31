@@ -2,6 +2,10 @@ package class01;
 
 import java.util.Arrays;
 
+/*
+* 查找有序数组中是否存在某个值
+* */
+
 public class Code04_BSExist {
 
 	public static boolean exist(int[] sortedArr, int num) {

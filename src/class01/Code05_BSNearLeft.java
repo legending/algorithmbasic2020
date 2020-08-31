@@ -2,6 +2,10 @@ package class01;
 
 import java.util.Arrays;
 
+/*
+* 有序序列中>=value的最左值
+* */
+
 public class Code05_BSNearLeft {
 
 	// 在arr上，找满足>=value的最左位置
@@ -10,11 +14,11 @@ public class Code05_BSNearLeft {
 		int R = arr.length - 1;
 		int index = -1; // 记录最左的对号
 		while (L <= R) {
-			int mid = L + ((R - L) >> 1);
+			int mid = L + ((R - L) >> 1); //防止溢出，同时位移操作比除操作更快
 			if (arr[mid] >= value) {
 				index = mid;
 				R = mid - 1;
-			} else {
+			} else {//不符合条件所以无法找到目标，所以要继续寻找
 				L = mid + 1;
 			}
 		}

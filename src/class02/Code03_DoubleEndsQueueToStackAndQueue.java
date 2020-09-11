@@ -54,8 +54,8 @@ public class Code03_DoubleEndsQueueToStackAndQueue {
 				tail = null;
 			} else {
 				head = head.next;
-				cur.next = null;
-				head.last = null;
+				cur.next = null;//断掉原来head指向后的引用
+				head.last = null;//断掉新head指向前的引用
 			}
 			return cur.value;
 		}

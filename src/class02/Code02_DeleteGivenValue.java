@@ -1,5 +1,11 @@
 package class02;
 
+/*
+* java删除链表节点只需要将next指针跳过要删除的节点然后指向下一个节点就OK（不用手动释放被删除节点的内存空间，而C/C++需要手动释放）
+* 如果是删除双向列表中的节点呢？
+* next指向被删除节点的下一个节点，last指向null
+* */
+
 public class Code02_DeleteGivenValue {
 
 	public static class Node {

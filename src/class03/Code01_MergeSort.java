@@ -19,12 +19,12 @@ public class Code01_MergeSort {
 			return;
 		}
 		int mid = L + ((R - L) >> 1);
-		process(arr, L, mid);
+		process(arr, L, mid);//迭代的目的在于把问题大而化小，小而化了，但迭代的时候的下标是全局下标而不是局部下标
 		process(arr, mid + 1, R);
-		merge(arr, L, mid, R);
+		merge(arr, L, mid, R); //每次迭代的实际操作：把左组与右组合并，真正开始计算是从最内存开始计算的，所以可以保证merge的左组与右组都是有序的
 	}
 
-	public static void merge(int[] arr, int L, int M, int R) {
+	public static void merge(int[] arr, int L, int M, int R) {//merge的前提是左组右组已经有序
 		int[] help = new int[R - L + 1];
 		int i = 0;
 		int p1 = L;
@@ -39,7 +39,7 @@ public class Code01_MergeSort {
 		while (p2 <= R) {
 			help[i++] = arr[p2++];
 		}
-		for (i = 0; i < help.length; i++) {
+		for (i = 0; i < help.length; i++)  {
 			arr[L + i] = help[i];
 		}
 	}
@@ -50,18 +50,18 @@ public class Code01_MergeSort {
 			return;
 		}
 		int N = arr.length;
-		int mergeSize = 1;// 当前有序的，左组长度
+		int mergeSize = 1;// 当前有序的，左组长度，只有从1开始才能保证左组右组是有序的
 		while (mergeSize < N) { // log N
 			int L = 0;
 			// 0.... 
 			while (L < N) {
 				// L...M  左组（mergeSize）
-				int M = L + mergeSize - 1;
-				if (M >= N) {
+				int M = L + mergeSize - 1;//M取的是下标
+				if (M >= N) {//如果没有右组那么左组一定有序
 					break;
 				}
 				//  L...M   M+1...R(mergeSize)
-				int R = Math.min(M + mergeSize, N - 1);
+				int R = Math.min(M + mergeSize, N - 1);//为什么是(M + mergeSize)而不是(M + mergeSize - 1)？M代表的是下标
 				merge(arr, L, M, R);
 				L = R + 1;
 			}

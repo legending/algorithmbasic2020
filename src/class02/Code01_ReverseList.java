@@ -3,6 +3,11 @@ package class02;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+* 构造一个单向链表：明确head与next
+* 构造一个双向链表：明确head，next与last
+* */
+
 public class Code01_ReverseList {
 
 	public static class Node {
@@ -30,8 +35,8 @@ public class Code01_ReverseList {
 		while (head != null) {
 			next = head.next;
 			head.next = pre;
-			pre = head;
-			head = next;
+			pre = head; //用于循环，相当于i++
+			head = next; //用于循环，相当于i++
 		}
 		return pre;
 	}
@@ -40,11 +45,11 @@ public class Code01_ReverseList {
 		DoubleNode pre = null;
 		DoubleNode next = null;
 		while (head != null) {
-			next = head.next;
+			next = head.next; //用于循环
 			head.next = pre;
 			head.last = next;
-			pre = head;
-			head = next;
+			pre = head; //用于循环，相当于i++
+			head = next; //用于循环，相当于i++
 		}
 		return pre;
 	}

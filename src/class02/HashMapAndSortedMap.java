@@ -4,6 +4,13 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.TreeMap;
 
+/*
+* HasMap与HashSet的key的底层组织结构是一致的
+* 哈希表，增、删、改、查，在使用时，O（1）
+* 哈希表中键值如果是Integer等基础类型的包装类或String，一律按值传递（Integer也不用纠结是大正整数还是小整数）
+* 如果键值是引用类型，则是按引用传递，键里存储的是键的引用地址
+* */
+
 public class HashMapAndSortedMap {
 	
 	
@@ -73,7 +80,8 @@ public class HashMapAndSortedMap {
 		System.out.println(map2.size());
 		
 		System.out.println("======================");
-		
+
+		//TreeMap的key是有序的
 		TreeMap<Integer, String> treeMap = new TreeMap<>();
 		
 		treeMap.put(3, "我是3");

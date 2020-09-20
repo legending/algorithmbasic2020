@@ -4,6 +4,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+/*
+* 要点
+* （1）准备两个队列queue,help（辅助队列），当push数据时直接往queue里push
+* （2）当poll或peek时，先往help里倒数据，然后在queue中poll(如果是peek则将peek到的数据继续倒入help)，最后queue与help互换
+* */
+
 public class Code07_TwoQueueImplementStack {
 
 	public static class TwoQueueStack<T> {

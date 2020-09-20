@@ -1,5 +1,11 @@
 package class02;
 
+/*
+* 数组实现栈很简单，只需要记录一个index即可
+* 但是数组实现队列则没那么简单
+* RingArray中增加了size属性来判断队列是满还是空，从而避免了通过pushi与polli的追及问题来判断队列的空与满
+* */
+
 public class Code04_RingArray {
 
 	public static class MyQueue {
@@ -40,7 +46,7 @@ public class Code04_RingArray {
 			return size == 0;
 		}
 
-		// 如果现在的下标是i，返回下一个位置
+		// 如果现在的下标是i，返回下一个位置-->形成一个环的关键逻辑
 		private int nextIndex(int i) {
 			return i < limit - 1 ? i + 1 : 0;
 		}

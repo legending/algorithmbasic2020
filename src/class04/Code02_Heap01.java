@@ -1,5 +1,9 @@
 package class04;
 
+/*
+* 堆本质上是一个完全二叉树，PriorityQueue就是一个堆，默认是大根堆
+* */
+
 public class Code02_Heap01 {
 
 	public static class MyMaxHeap {
@@ -49,8 +53,11 @@ public class Code02_Heap01 {
 			}
 		}
 
-		// 从index位置，往下看，不断的下沉，
+		// 从index位置，往下看，不断的下沉
 		// 停：我的孩子都不再比我大；已经没孩子了
+		//heapify所做的事情：（把最后一个元素与根元素交换位置，heapSize减1，即把当前的大根堆删掉根元素后）重新将剩下的完全二叉树整理成一个大根堆
+		//注意这里说的删掉不是真的删掉：而是通过heapSize来控制的，数依然在arr中
+		//注意：因为是大根堆，所以尾部用于替换指定位置的元素，只可能下降，不可能上升
 		private void heapify(int[] arr, int index, int heapSize) {
 			int left = index * 2 + 1;
 			while (left < heapSize) {
@@ -59,7 +66,7 @@ public class Code02_Heap01 {
 				// 否则，左
 				int largest = left + 1 < heapSize && arr[left + 1] > arr[left] ? left + 1 : left;
 				largest = arr[largest] > arr[index] ? largest : index;
-				if (largest == index) {
+				if (largest == index) {//当前index父节点与较大的子节点相等或者大于较大的子节点时，说明不用再下沉了
 					break;
 				}
 				swap(arr, largest, index);
@@ -102,7 +109,7 @@ public class Code02_Heap01 {
 			arr[size++] = value;
 		}
 
-		public int pop() {
+		public int pop() {//这里pop要对比maxHeap的pop方法：每次返回最大值，然后容量减一
 			int maxIndex = 0;
 			for (int i = 1; i < size; i++) {
 				if (arr[i] > arr[maxIndex]) {

@@ -1,5 +1,9 @@
 package class04;
 
+/*
+* heap添加resign方法
+* */
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -51,7 +55,7 @@ public class Code03_Heap02 {
 
 		public void resign(T value) {
 			int valueIndex = indexMap.get(value);
-			heapInsert(valueIndex);
+			heapInsert(valueIndex);//为什么会同时出现heapInsert，heapify
 			heapify(valueIndex, heapSize);
 		}
 

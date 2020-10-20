@@ -3,6 +3,11 @@ package class04;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
+/*
+* 堆排序
+* 最大的优点是：空间复杂度为O(1)
+* */
+
 public class Code04_HeapSort {
 
 	// 堆排序额外空间复杂度O(1)
@@ -18,11 +23,11 @@ public class Code04_HeapSort {
 			heapify(arr, i, arr.length);
 		}
 		int heapSize = arr.length;
-		swap(arr, 0, --heapSize);
+		swap(arr, 0, --heapSize);//这个 --heapSize 用的很巧妙：就是下标，有对heapSize进行了减一操作
 		// O(N*logN)
 		while (heapSize > 0) { // O(N)
 			heapify(arr, 0, heapSize); // O(logN)
-			swap(arr, 0, --heapSize); // O(1)
+			swap(arr, 0, --heapSize); // O(1)，每一次交换都把当前大根堆的最大值换到了最后面
 		}
 	}
 

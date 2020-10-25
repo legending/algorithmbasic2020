@@ -2,6 +2,7 @@ package class04;
 
 /*
 * heap添加resign方法
+* 当需要修改已经排序好的堆元素的属性时，这个时候需要自己构造堆结构
 * */
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class Code03_Heap02 {
 
 	// 堆
 	public static class MyHeap<T> {
-		private ArrayList<T> heap;
+		private ArrayList<T> heap;//小根堆
 		private HashMap<T, Integer> indexMap;
 		private int heapSize;
 		private Comparator<? super T> comparator;
@@ -55,8 +56,9 @@ public class Code03_Heap02 {
 
 		public void resign(T value) {
 			int valueIndex = indexMap.get(value);
-			heapInsert(valueIndex);//为什么会同时出现heapInsert，heapify
-			heapify(valueIndex, heapSize);
+			//已下两个方法只可能调用其中一个
+			heapInsert(valueIndex);//当前节点小比父节点小，要往上升
+			heapify(valueIndex, heapSize);//当前节点比其子节点大，要往下沉
 		}
 
 		private void heapInsert(int index) {
@@ -244,16 +246,6 @@ public class Code03_Heap02 {
 			preAge = cur.age;
 		}
 		System.out.println("test finish");
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
 	}
 

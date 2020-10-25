@@ -2,6 +2,15 @@ package class08;
 
 import java.util.ArrayList;
 
+/*
+* 二叉树的递归套路深度实践
+* 给定一棵二叉树的头节点head,
+* 返回这颗二叉树中最大的二叉搜索子树的头节点
+*
+* 什么是搜索二叉树？
+* 所有的节点没有重复值，左节点的值都比父节点小，右节点的值都比父节点大
+* */
+
 public class Code05_MaxSubBSTHead {
 
 	public static class Node {

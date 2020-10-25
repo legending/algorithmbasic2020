@@ -1,5 +1,11 @@
 package class06;
 
+/*
+* 链表的partition算法
+* （1）直接把节点装在数组里，从而转换成数组的partition算法
+* （2）声明3对头尾指针，来分别装入小于，等于，大于给定值的节点
+* */
+
 public class Code03_SmallerEqualBigger {
 
 	public static class Node {

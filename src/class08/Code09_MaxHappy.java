@@ -3,6 +3,11 @@ package class08;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+* 求最大快乐值
+*
+* */
+
 public class Code09_MaxHappy {
 
 	public static class Employee {

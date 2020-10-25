@@ -2,6 +2,11 @@ package class05;
 
 import java.util.Arrays;
 
+/*
+* 计数排序是桶排序的一种体现
+* 但是对数据本身有要求：只适用于参与排序数的范围有限，且不是太大的情况
+* */
+
 public class Code03_CountSort {
 
 	// only for 0~200 value

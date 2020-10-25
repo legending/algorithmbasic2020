@@ -2,6 +2,10 @@ package class08;
 
 import java.util.ArrayList;
 
+/*
+* 是否是二叉搜索树：所有的节点没有重复值，左树的值都比父节点小，右树的值都比父节点大
+* */
+
 public class Code03_IsBST {
 
 	public static class Node {

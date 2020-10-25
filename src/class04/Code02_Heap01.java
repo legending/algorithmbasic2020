@@ -1,7 +1,7 @@
 package class04;
 
 /*
-* 堆本质上是一个完全二叉树，PriorityQueue就是一个堆，默认是大根堆
+* 堆本质上是一个完全二叉树，PriorityQueue就是一个堆，默认是小根堆
 * */
 
 public class Code02_Heap01 {
@@ -64,7 +64,7 @@ public class Code02_Heap01 {
 				// 左右两个孩子中，谁大，谁把自己的下标给largest
 				// 右  ->  1) 有右孩子   && 2）右孩子的值比左孩子大才行
 				// 否则，左
-				int largest = left + 1 < heapSize && arr[left + 1] > arr[left] ? left + 1 : left;
+				int largest = left + 1 < heapSize && arr[left + 1] > arr[left] ? left + 1 : left;//比较左右子节点的大小，并把较大值的下标赋给largest
 				largest = arr[largest] > arr[index] ? largest : index;
 				if (largest == index) {//当前index父节点与较大的子节点相等或者大于较大的子节点时，说明不用再下沉了
 					break;

@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/*
+* 求一个二叉树中最大的精简距离（从一个节点到达另一个节点的最短路径）
+* */
+
 public class Code08_MaxDistance {
 
 	public static class Node {

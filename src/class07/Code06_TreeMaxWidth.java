@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+* 求树的最大宽度
+* */
+
 public class Code06_TreeMaxWidth {
 
 	public static class Node {

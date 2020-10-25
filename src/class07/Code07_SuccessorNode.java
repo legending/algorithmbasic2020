@@ -1,5 +1,11 @@
 package class07;
 
+/*
+* 在中序遍历中查询给定节点的后继节点？
+* 前驱节点呢？
+* 这里的后继与前驱都是指在中序遍历的情况下
+* */
+
 public class Code07_SuccessorNode {
 
 	public static class Node {

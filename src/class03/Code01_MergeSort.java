@@ -1,5 +1,10 @@
 package class03;
 
+/*
+* 归并排序
+* 利用递归，将数据规模不断二分
+* */
+
 public class Code01_MergeSort {
 
 	// 递归方法实现

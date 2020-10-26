@@ -5,7 +5,8 @@ import java.util.HashMap;
 /*
 * 前缀树
 * 1)单个字符串中，字符从前到后的加到一棵多叉树上
-* 2）字符放在路上，节点上有专属的数据项（常见的是pass和end值)3）所有样本都这样添加，如果没有路就新建，如有路就复用
+* 2）字符放在路上，节点上有专属的数据项（常见的是pass和end值)
+* 3）所有样本都这样添加，如果没有路就新建，如有路就复用
 * 4）沿途节点的pass值增加1，每个字符串结束时来到的节点end值增加1
 * */
 
@@ -39,35 +40,33 @@ public class Code02_TrieTree {
 		}
 
 		public void insert(String word) {
-			if (word == null) {
-				return;
-			}
+			if (word == null) return;
 			char[] str = word.toCharArray();
 			Node1 node = root;
-			node.pass++;
-			int path = 0;
-			for (int i = 0; i < str.length; i++) { // 从左往右遍历字符
-				path = str[i] - 'a'; // 由字符，对应成走向哪条路
-				if (node.nexts[path] == null) {
-					node.nexts[path] = new Node1();
-				}
-				node = node.nexts[path];
+			node.pass++; //因为path的两端都是Node1，都需要pass++，为了便于在循环中加一个点执行一个pass++，所以这里要提前pass++一次
+			int index = 0; //因为每循环一次就要用到index，且index只在循环里使用，所以这里拿出来
+			for (int i = 0; i < str.length; i++) {
+				index = str[i] - 'a';
+				if (node.nexts[index] == null) node.nexts[index] = new Node1();
+				node = node.nexts[index];
 				node.pass++;
 			}
 			node.end++;
 		}
 
+		//如果有多个word，只删除一个
 		public void delete(String word) {
-			if (search(word) != 0) {
-				char[] chs = word.toCharArray();
+			if (search(word) > 0) {
+				char [] str = word.toCharArray();
 				Node1 node = root;
-				node.pass--;
+				node.pass --;
 				int path = 0;
-				for (int i = 0; i < chs.length; i++) {
-					path = chs[i] - 'a';
-					if (--node.nexts[path].pass == 0) {
+				for (int i = 0; i < str.length; i++) {
+					path = str[i] - 'a';
+					node.nexts[path].pass --;
+					if (node.nexts[path].pass == 0) {
 						node.nexts[path] = null;
-						return;
+						return;//删除后续节点后，这里需要对应终止执行
 					}
 					node = node.nexts[path];
 				}
@@ -77,18 +76,14 @@ public class Code02_TrieTree {
 
 		// word这个单词之前加入过几次
 		public int search(String word) {
-			if (word == null) {
-				return 0;
-			}
-			char[] chs = word.toCharArray();
+			if (word == null) return 0;
+			char[] str = word.toCharArray();
+			int times = 0;
 			Node1 node = root;
-			int index = 0;
-			for (int i = 0; i < chs.length; i++) {
-				index = chs[i] - 'a';
-				if (node.nexts[index] == null) {
-					return 0;
-				}
-				node = node.nexts[index];
+			for (int i = 0; i < str.length; i++) {
+				int path = str[i] - 'a';
+				if (node.nexts[path] == null) return 0;
+				node = node.nexts[path];
 			}
 			return node.end;
 		}

@@ -5,6 +5,10 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 
+/*
+* 把一个字符串数组的所有元素都拼接起来，找到其中字典序最小的字符串
+* */
+
 public class Code01_LowestLexicography {
 
 	public static String lowestString1(String[] strs) {

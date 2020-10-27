@@ -2,6 +2,14 @@ package class09;
 
 import java.util.HashSet;
 
+/*
+* 用一个数组表示一条街上有n个位置，用点代表空闲的位置，可以立路灯，用叉表示墙，墙无法立路灯
+* 一个路灯可以照亮自己和相邻的位置，墙无需被照亮，所有的空闲位置必须被照亮
+* 求最少需要多少盏灯
+*
+* 贪心算法 -> 用一个字符数组，按需求放入点与叉，每一步求当前最优解
+* */
+
 public class Code02_Light {
 
 	public static int minLight1(String road) {

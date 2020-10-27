@@ -3,6 +3,10 @@ package class09;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/*
+* 会议室安排会议，每个会议由start,end时间，会议室最多只能容纳一个会议，求固定时间段内可以安排会议最多的方案
+* */
+
 public class Code04_BestArrange {
 
 	public static class Program {

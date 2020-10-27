@@ -2,6 +2,11 @@ package class08;
 
 import java.util.LinkedList;
 
+/*
+ * 给定一个二叉树的头结点，判断是否是完全二叉树？
+ * 每一层都是满的（一个二叉树的深度是k，且总的节点数数是2^k-1）
+ * */
+
 public class Code06_IsCBT {
 
 	public static class Node {

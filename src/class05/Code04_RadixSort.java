@@ -2,6 +2,12 @@ package class05;
 
 import java.util.Arrays;
 
+/*
+ * 基数排序是桶排序思想的一种体现（也是借助容器）
+ * 但是对数据本身有要求：只适用于参十进制，且一般只用于非负整数
+ * 桶排序的缺陷：只要数据状况发生改变就要改写代码
+ * */
+
 public class Code04_RadixSort {
 
 	// only for no-negative value
@@ -12,6 +18,7 @@ public class Code04_RadixSort {
 		radixSort(arr, 0, arr.length - 1, maxbits(arr));
 	}
 
+	//求最大数的十进制位数
 	public static int maxbits(int[] arr) {
 		int max = Integer.MIN_VALUE;
 		for (int i = 0; i < arr.length; i++) {
@@ -20,7 +27,7 @@ public class Code04_RadixSort {
 		int res = 0;
 		while (max != 0) {
 			res++;
-			max /= 10;
+			max /= 10;//不断除10直到最后为0
 		}
 		return res;
 	}
@@ -46,25 +53,21 @@ public class Code04_RadixSort {
 				count[j]++;
 			}
 			for (i = 1; i < radix; i++) {
-				count[i] = count[i] + count[i - 1];
+				count[i] = count[i] + count[i - 1];//计算小于等于当前位的值的个数
 			}
-			for (i = R; i >= L; i--) {
+			for (i = R; i >= L; i--) {//从右边开始遍历
 				j = getDigit(arr[i], d);
-				help[count[j] - 1] = arr[i];
+				help[count[j] - 1] = arr[i];//在小于等于j的数组元素中，最后一个位置肯定是第i个数，这个是最核心的思想
 				count[j]--;
 			}
 			for (i = L, j = 0; i <= R; i++, j++) {
 				arr[i] = help[j];
 			}
 		}
-		
-		
-		
-		
 	}
 
 	public static int getDigit(int x, int d) {
-		return ((x / ((int) Math.pow(10, d - 1))) % 10);
+		return ((x / ((int) Math.pow(10, d - 1))) % 10); // x/10^(d-1) % 10
 	}
 
 	// for test

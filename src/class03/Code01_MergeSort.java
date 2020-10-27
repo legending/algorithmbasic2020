@@ -1,8 +1,11 @@
 package class03;
 
+/*
+* 归并排序
+* 利用递归，将数据规模不断二分
+* */
+
 public class Code01_MergeSort {
-
-
 
 	// 递归方法实现
 	public static void mergeSort1(int[] arr) {
@@ -13,7 +16,7 @@ public class Code01_MergeSort {
 	}
 
 	// arr[L...R]范围上，变成有序的
-	// L...R    N    T(N) = 2*T(N/2) + O(N)  ->
+	// L...R    N    T(N) = 2*T(N/2) + O(N)  -> a=2, b=2, d=1 -> log(a, b) = d -> T(n) = O(n*log(n))
 	public static void process(int[] arr, int L, int R) {
 		if (L == R) { // base case
 			return;

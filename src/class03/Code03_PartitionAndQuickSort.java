@@ -1,5 +1,13 @@
 package class03;
 
+/*
+* Partition
+* 给定一个数组arr，和一个整数num。请把小于等于num的数放在数组的左边,大于num的数放在数组的右边，不要求左右两边的数组有序
+* 要求额外空间复杂度O(1)，时间复杂度O(N)
+*
+* 为了节省参数，这里取arr[R]为分界值
+* */
+
 public class Code03_PartitionAndQuickSort {
 
 	public static void swap(int[] arr, int i, int j) {
@@ -39,7 +47,7 @@ public class Code03_PartitionAndQuickSort {
 		int less = L - 1; // < 区 右边界
 		int more = R;     // > 区 左边界
 		int index = L;
-		while (index < more) {
+		while (index < more) { //记住这个条件
 			if (arr[index] == arr[R]) {
 				index++;
 			} else if (arr[index] < arr[R]) {
@@ -76,6 +84,7 @@ public class Code03_PartitionAndQuickSort {
 		process2(arr, 0, arr.length - 1);
 	}
 
+	//一次性搞定等于区域
 	public static void process2(int[] arr, int L, int R) {
 		if (L >= R) {
 			return;
@@ -85,6 +94,8 @@ public class Code03_PartitionAndQuickSort {
 		process2(arr, equalArea[1] + 1, R);
 	}
 
+	//quickSort1,quickSort2其实复杂度都是 T(k*n)+T((1-k)*n)+O(n)=O(n^2)
+	//只有随机选择分界值的时候，时间复杂度才是：n*log(n)
 	public static void quickSort3(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
@@ -92,6 +103,7 @@ public class Code03_PartitionAndQuickSort {
 		process3(arr, 0, arr.length - 1);
 	}
 
+	//随机选一个分界值
 	public static void process3(int[] arr, int L, int R) {
 		if (L >= R) {
 			return;

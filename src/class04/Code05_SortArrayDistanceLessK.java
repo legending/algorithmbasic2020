@@ -3,6 +3,10 @@ package class04;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
+/*
+* 一个数组任意一个数相比排序后的结果，它的位置相差不超过k，用堆排序进行排序
+* */
+
 public class Code05_SortArrayDistanceLessK {
 
 	public static void sortedArrDistanceLessK(int[] arr, int k) {
@@ -12,15 +16,16 @@ public class Code05_SortArrayDistanceLessK {
 		// 默认小根堆
 		PriorityQueue<Integer> heap = new PriorityQueue<>();
 		int index = 0;
-		// 0...K-1
+		// 0...K-1，先组成一个用于循环的堆，并保存前K个值，从而把arr[0~(k-1)]的空间省出来，用来存放已经排好序的值
 		for (; index <= Math.min(arr.length - 1, k - 1); index++) {
 			heap.add(arr[index]);
 		}
 		int i = 0;
 		for (; index < arr.length; i++, index++) {
-			heap.add(arr[index]);
+			heap.add(arr[index]);//这一条语句与紧接着的语句顺序和互换，因为哪怕是K+1个元素的堆，因为位置相差不超过5，所以当前堆的最小值一定出自前面K个
 			arr[i] = heap.poll();
 		}
+		//处理最后剩下的一组元素
 		while (!heap.isEmpty()) {
 			arr[i++] = heap.poll();
 		}

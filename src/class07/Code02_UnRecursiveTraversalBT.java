@@ -82,13 +82,13 @@ public class Code02_UnRecursiveTraversalBT {
 			Node c = null;
 			while (!stack.isEmpty()) {
 				c = stack.peek();
-				if (c.left != null && h != c.left && h != c.right) {
+				if (c.left != null && h != c.left && h != c.right) {//判断c左边是否处理
 					stack.push(c.left);
-				} else if (c.right != null && h != c.right) {
+				} else if (c.right != null && h != c.right) {//判断c右边是否处理
 					stack.push(c.right);
 				} else {
 					System.out.print(stack.pop().value + " ");
-					h = c;
+					h = c;//hb被赋予真正的意义，记录上次被弹出的节点
 				}
 			}
 		}

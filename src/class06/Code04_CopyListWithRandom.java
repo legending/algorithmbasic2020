@@ -2,6 +2,12 @@ package class06;
 
 import java.util.HashMap;
 
+/*
+* 拷贝带有Random的指针的链表
+* (1) 用HashMap装入所有新节点，然后再遍历原有链表的过程中把原有节点串起来
+* (2) 把原有链表的每一个节点都复制一个，然后插入到当前节点的后面，最后把得到的链表分离出来
+* */
+
 public class Code04_CopyListWithRandom {
 
 	public static class Node {

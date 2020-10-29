@@ -1,5 +1,9 @@
 package class07;
 
+/*
+* 递归遍历二叉树
+* */
+
 public class Code01_RecursiveTraversalBT {
 
 	public static class Node {

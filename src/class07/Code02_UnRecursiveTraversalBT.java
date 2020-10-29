@@ -2,6 +2,10 @@ package class07;
 
 import java.util.Stack;
 
+/*
+* 非递归方法遍历二叉树
+* */
+
 public class Code02_UnRecursiveTraversalBT {
 
 	public static class Node {

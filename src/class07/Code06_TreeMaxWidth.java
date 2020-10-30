@@ -6,6 +6,12 @@ import java.util.Queue;
 
 /*
 * 求树的最大宽度
+* 转换一下就是求哪一层节点最多
+*
+* 记住 maxWidthNoMap
+* 要点：使用队列，循环中不断把当前节点的左右孩子入栈，同时找到最右的节点
+*      当出栈的当前节点是curEnd的时候，说明当前层结束了,然后统计max、为下一次循环做准备(curEnd=nextEnd)、归零记录点数的临时变量
+*      最后返回max
 * */
 
 public class Code06_TreeMaxWidth {
@@ -55,6 +61,7 @@ public class Code06_TreeMaxWidth {
 		return max;
 	}
 
+	//每一次找到最右节点
 	public static int maxWidthNoMap(Node head) {
 		if (head == null) {
 			return 0;

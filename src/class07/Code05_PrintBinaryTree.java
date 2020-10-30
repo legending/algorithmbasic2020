@@ -1,5 +1,12 @@
 package class07;
 
+/*
+* 打印二叉树结构
+* 由于控制台打印只能从上打印，所以这里二叉树躺下，然后中序遍历
+*
+* 我想尝试的思路：宽度优先遍历 + 满二叉树固定位置 + 通过父节点标记</>来标记是否有左右孩子
+* */
+
 public class Code05_PrintBinaryTree {
 
 	public static class Node {

@@ -14,7 +14,7 @@ public class Code08_PaperFolding {
 
 	// 递归过程，来到了某一个节点，
 	// i是节点的层数，N一共的层数，down == true  凹    down == false 凸
-	// 之所以不用把整个树型界都都存下来是因为这棵树很有规律
+	// 之所以不用把整个树型结构都存下来是因为这棵树很有规律
 	public static void printProcess(int i, int N, boolean down) {
 		if (i > N) {
 			return;

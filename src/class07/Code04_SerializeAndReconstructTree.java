@@ -4,6 +4,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+/*
+* 使用队列，递归实现二叉树的序列化与反序列化
+*
+* 选择前序强记
+*
+* */
+
 public class Code04_SerializeAndReconstructTree {
     /*
      * 二叉树可以通过先序、后序或者按层遍历的方式序列化和反序列化，

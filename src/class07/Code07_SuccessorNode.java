@@ -4,6 +4,9 @@ package class07;
 * 在中序遍历中查询给定节点的后继节点？
 * 前驱节点呢？
 * 这里的后继与前驱都是指在中序遍历的情况下
+* 分两种情况
+* （1）如果有右孩子，就找到该右子树的最左节点
+* （2）如果没有，就判断该节点是是否是父节点的右孩子，如果是一直网上找，知道父为空或当前节点不再是右孩子
 * */
 
 public class Code07_SuccessorNode {
@@ -23,7 +26,7 @@ public class Code07_SuccessorNode {
 		if (node == null) {
 			return node;
 		}
-		if (node.right != null) {
+		if (node.right != null) {//有右子树则该其最左节点为后继节点
 			return getLeftMost(node.right);
 		} else { // 无右子树
 			Node parent = node.parent;
@@ -39,7 +42,7 @@ public class Code07_SuccessorNode {
 		if (node == null) {
 			return node;
 		}
-		while (node.left != null) {
+		while (node.left != null) {//注意是：node.left，而不是node来判断
 			node = node.left;
 		}
 		return node;

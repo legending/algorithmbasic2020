@@ -79,25 +79,19 @@ public class Code06_IsCBT {
 		}
 		Info leftInfo = process(X.left);
 		Info rightInfo = process(X.right);
-		
-		
-		
+
 		int height = Math.max(leftInfo.height, rightInfo.height) + 1;
-		
-		
+
 		boolean isFull = leftInfo.isFull 
 				&& 
 				rightInfo.isFull 
 				&& leftInfo.height == rightInfo.height;
-		
 		
 		boolean isCBT = false;
 		if (isFull) {
 			isCBT = true;
 		} else { // 以x为头整棵树，不满
 			if (leftInfo.isCBT && rightInfo.isCBT) {
-				
-				
 				if (leftInfo.isCBT 
 						&& rightInfo.isFull 
 						&& leftInfo.height == rightInfo.height + 1) {
@@ -113,8 +107,6 @@ public class Code06_IsCBT {
 						&& rightInfo.isCBT && leftInfo.height == rightInfo.height) {
 					isCBT = true;
 				}
-				
-				
 			}
 		}
 		return new Info(isFull, isCBT, height);

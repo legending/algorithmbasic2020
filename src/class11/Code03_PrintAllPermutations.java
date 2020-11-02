@@ -3,6 +3,18 @@ package class11;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+* 打印字符数组的全排列
+* 如[a, b, c]
+* 思路
+* 	a来到0位置 -> ...
+* 	b来到0位置 -> ...
+* 	c来到0位置 -> ...
+* 详细过程见图示 全排列思路.png
+*
+* 结果中可能出现重复值 -> 分支限界
+* */
+
 public class Code03_PrintAllPermutations {
 
 	public static ArrayList<String> permutation(String str) {
@@ -21,12 +33,13 @@ public class Code03_PrintAllPermutations {
 	public static void process(char[] str, int i, ArrayList<String> ans) {
 		if (i == str.length) {
 			ans.add(String.valueOf(str));
+			return;//可以不写，但会浪费之后的判断，所以最好能返回就返回
 		}
 		// 如果i没有终止，i...  都可以来到i位置
 		for (int j = i; j < str.length; j++) { // j  i后面所有的字符都有机会
-			swap(str, i, j);
+			swap(str, i, j);//把第j字符放到i位置
 			process(str, i + 1, ans);
-			swap(str, i, j);
+			swap(str, i, j); //恢复现场
 		}
 	}
 	

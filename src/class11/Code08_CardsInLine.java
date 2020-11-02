@@ -1,5 +1,13 @@
 package class11;
 
+/*
+* 范围上尝试的模型
+* 给定一个整型数组arr，代表数值不同的纸牌排成一条线,玩家A和玩家B依次拿走每张纸牌，
+* 规定玩家A先拿，玩家B后拿，
+* 但是每个玩家每次只能拿走最左或最右的纸牌，
+* 玩家A和玩家B都绝顶聪明，直到最后牌拿完，谁手里的牌的数字相加最大谁获胜，请返回最后获胜者的分数。
+* */
+
 public class Code08_CardsInLine {
 
 	public static int win1(int[] arr) {
@@ -14,7 +22,8 @@ public class Code08_CardsInLine {
 
 	// L....R
 	// F  S  L+1..R
-	         // L..R-1
+	 // L..R-1
+	//在 L ... R-1 自己上拿纸牌，先手拿牌的最好分数
 	public static int f(int[] arr, int L, int R) {
 		if (L == R) {
 			return arr[L];
@@ -27,6 +36,7 @@ public class Code08_CardsInLine {
 	}
 
 	// arr[L..R]
+	// 在 L ... R-1 我自己后手拿纸牌，自己或的最差分数（因为让对方先拿，那么自己被动，按照“绝顶聪明”的原则，对方肯定会让你拿当前最差的情况）
 	public static int s(int[] arr, int L, int R) {
 		if (L == R) {
 			return 0;

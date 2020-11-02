@@ -1,5 +1,20 @@
 package class11;
 
+/*
+* 从左往右的尝试模型1
+* 规定1和A对应、2和B对应、3和C对应...那么一个数字字符串比如"111"就可以转化为:'AAA"、“KA"和"AK"
+* 给定一个只有数字字符组成的字符串str，返回有多少种转化结果
+*
+* 思路：以第一个字符占多少位，往后递归
+*
+* 动态规划
+* 1. 一个可变参数
+* 2. i位置的结果依赖于(i+1)和(i+2)位置的结果，所以要先缓存后面的结果
+* 3. i = [0, N]，所以 int[] dp = new int[N+1];
+* 4. 最终题目需要的结果是i=0，所以最终返回dp[0]
+* 5.
+* */
+
 public class Code06_ConvertToLetterString {
 
 	public static int number(String str) {

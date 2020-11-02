@@ -1,16 +1,16 @@
 package class12;
 
-public class Code05_PalindromeSubsequence {
+/*
+* 多样本位置全对应的尝试模型
+* 两个字符串的最长公共子序列问题
+*
+* 可以直接画dp表来猜、尝试
+* */
+
+public class Code05_LongestCommonSubSequence {
 
 	public static int lcse(char[] str1, char[] str2) {
-		
-		
-		
-		
 		int[][] dp = new int[str1.length][str2.length];
-		
-		
-		
 		dp[0][0] = str1[0] == str2[0] ? 1 : 0;
 		
 		

@@ -5,6 +5,21 @@ import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
 
+/*
+ * 最小生成树要解决的问题
+ * 用N-1条边连接N个点的问题，保证(N-1)条边权值最小
+ *
+ * 最小生成树算法之Prim
+ * 1)可以从任意节点出发来寻找最小生成树
+ * 2）某个点加入到被选取的点中后，解锁这个点出发的所有新的边
+ * 3）在所有解锁的边中选最小的边，然后看看这个边会不会形成环
+ * 4）如果会，不要当前边，继续考察剩下解锁的边中最小的边，重复3)
+ * 5）如果不会，要当前边，将该边的指向点加入到被选取的点中，重复2)
+ * 6)当所有点都被选取，最小生成树就得到了
+ *
+ * 不需要并查集，因为总是一个点解锁一批边，然后挑一条最小边，然后解锁一个点，所以是一个一个点去解锁的，而不是通过集合合并的方式，只需要一个set就OK了
+ * */
+
 // undirected graph only
 public class Code05_Prim {
 
@@ -24,7 +39,7 @@ public class Code05_Prim {
 		// 哪些点被解锁出来了
 		HashSet<Node> nodeSet = new HashSet<>();
 		Set<Edge> result = new HashSet<>(); // 依次挑选的的边在result里
-		for (Node node : graph.nodes.values()) { // 随便挑了一个点
+		for (Node node : graph.nodes.values()) { // 随便挑了一个点，这个for循环主要为防止森林（有多个独立的图）
 			// node 是开始点
 			if (!nodeSet.contains(node)) {
 				nodeSet.add(node);

@@ -5,6 +5,7 @@ import java.util.Comparator;
 
 /*
 * 会议室安排会议，每个会议由start,end时间，会议室最多只能容纳一个会议，求固定时间段内可以安排会议最多的方案
+* 最佳方案：当几个会议都可以安排时，先结束的先安排
 * */
 
 public class Code04_BestArrange {

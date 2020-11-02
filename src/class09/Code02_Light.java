@@ -55,7 +55,7 @@ public class Code02_Light {
 			if (str[index] == 'X') {
 				index++;
 			} else { // i -> .
-				light++;
+				light++;//只要不是墙肯定会放灯，只是看具体放哪个位置
 				if (index + 1 == str.length) {
 					break;
 				} else {

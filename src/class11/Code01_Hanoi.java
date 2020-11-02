@@ -2,6 +2,13 @@ package class11;
 
 import java.util.Stack;
 
+/*
+* 三根柱子a,b,c，a柱子上穿一摞从上到下由小变大的圆片，b、c柱子初始都是空的，
+* 现在要求把a柱子上的盘子全都挪到c柱子上，最终顺序跟原来在a柱子上一样，在移动的过程中，必须时刻保证小圆片在大圆片上面
+*
+* N层汉诺塔完成的最优解需要移动2^N-1次
+* */
+
 public class Code01_Hanoi {
 
 	public static void hanoi1(int n) {
@@ -76,7 +83,8 @@ public class Code01_Hanoi {
 		}
 	}
 
-	// 1~i 圆盘 目标是from -> to， other是另外一个
+	// 1~i 圆盘 目标是from
+	// -> to， other是另外一个
 	public static void func(int N, String from, String to, String other) {
 		if (N == 1) { // base
 			System.out.println("Move 1 from " + from + " to " + to);

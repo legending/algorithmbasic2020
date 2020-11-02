@@ -89,15 +89,7 @@ public class Code04_MaxSubBSTSize {
 //		}
 //		return new Info(isBST, maxSubBSTSize, min, max);
 //	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	// 任何子树
 	public static class Info {
 		public boolean isAllBST;
@@ -113,18 +105,13 @@ public class Code04_MaxSubBSTSize {
 		}
 	}
 	
-	
-	
-	
 	public static Info process(Node X) {
 		if(X == null) {
 			return null;
 		}
 		Info leftInfo = process(X.left);
 		Info rightInfo = process(X.right);
-		
-		
-		
+
 		int min = X.value;
 		int max = X.value;
 		
@@ -136,12 +123,6 @@ public class Code04_MaxSubBSTSize {
 			min = Math.min(min, rightInfo.min);
 			max = Math.max(max, rightInfo.max);
 		}
-		
-		
-		
-		
-		
-		
 
 		int maxSubBSTSize = 0;
 		if(leftInfo != null) {
@@ -150,9 +131,9 @@ public class Code04_MaxSubBSTSize {
 		if(rightInfo !=null) {
 			maxSubBSTSize = Math.max(maxSubBSTSize, rightInfo.maxSubBSTSize);
 		}
+
+
 		boolean isAllBST = false;
-		
-		
 		if(
 				// 左树整体需要是搜索二叉树
 				(  leftInfo == null ? true : leftInfo.isAllBST    )
@@ -174,26 +155,8 @@ public class Code04_MaxSubBSTSize {
 					+
 					1;
 					isAllBST = true;
-			
-			
-		}
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		}
 		return new Info(isAllBST, maxSubBSTSize, min, max);
 	}
 	

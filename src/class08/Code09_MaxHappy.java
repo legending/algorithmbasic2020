@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-* 求最大快乐值
-*
+* 派对的最大快乐值
+* 这个公司现在要办party，你可以决定哪些员工来，哪些员工不来，规则:
+* 1.如果某个员工来了，那么这个员工的所有直接下级都不能来
+* ⒉.派对的整体快乐值是所有到场员工快乐值的累加
+* 3.你的目标是让派对的整体快乐值尽量大
+* 给定一棵多叉树的头节点boss，请返回派对的最大快乐值。
+* 没发请柬一定不来，发了请柬
 * */
 
 public class Code09_MaxHappy {
@@ -73,12 +78,12 @@ public class Code09_MaxHappy {
 		if (x.nexts.isEmpty()) {
 			return new Info(x.happy, 0);
 		}
-		int yes = x.happy;
-		int no = 0;
+		int yes = x.happy;//给x发请柬
+		int no = 0;//不给x发请柬
 		for (Employee next : x.nexts) {
-			Info nextInfo = process2(next);
-			yes += nextInfo.no;
-			no += Math.max(nextInfo.yes, nextInfo.no);
+			Info nextInfo = process2(next);//
+			yes += nextInfo.no;//每个直接下级不来时，以该下级为头的整棵树的最大快乐值
+			no += Math.max(nextInfo.yes, nextInfo.no);//每个直接下级来或不来，以当前下级为头的整棵树的最大快乐值，因为发了请柬不一定要来
 		}
 		return new Info(yes, no);
 	}

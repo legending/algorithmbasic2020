@@ -99,11 +99,13 @@ public class Code05_MaxSubBSTHead {
 		if (rightInfo != null) {
 			min = Math.min(min, rightInfo.min);
 			max = Math.max(max, rightInfo.max);
-			if (rightInfo.maxSubBSTSize > maxSubBSTSize) {
+			if (rightInfo.maxSubBSTSize > maxSubBSTSize) {//哪边大选哪边
 				maxSubBSTHead = rightInfo.maxSubBSTHead;
 				maxSubBSTSize = rightInfo.maxSubBSTSize;
 			}
 		}
+
+		//判断当前节点X的左孩子比X小，且有孩子比X大
 		if ((leftInfo == null ? true : (leftInfo.maxSubBSTHead == X.left && leftInfo.max < X.value))
 				&& (rightInfo == null ? true : (rightInfo.maxSubBSTHead == X.right && rightInfo.min > X.value))) {
 			maxSubBSTHead = X;

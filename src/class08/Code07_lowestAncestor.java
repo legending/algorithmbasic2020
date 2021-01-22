@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 /*
-* 给定二叉树中的任意两个节点，求他们第一个公共父节点？
+* 给定二叉树中的任意两个节点，求他们第一个（从下往上找）公共父节点？
 * */
 
 public class Code07_lowestAncestor {

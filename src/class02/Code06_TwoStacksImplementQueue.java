@@ -3,7 +3,7 @@ package class02;
 import java.util.Stack;
 
 /*
-* 要点：
+* 两个栈实现队列：
 * （1）准备两个栈，只要栈中有数据，每次add/poll之前都执行pushToPop，从而保证只要有数据，则在被取走之前一定有且只有一个元素被放在popStack里
 * （2）pushToPop的条件是popStack为空，而pushStack不为空
 * */

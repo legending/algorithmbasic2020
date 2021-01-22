@@ -19,8 +19,8 @@ public class Code02_DeleteGivenValue {
 
 	public static Node removeValue(Node head, int num) {
 		// head来到第一个不需要删的位置
-		while (head != null) {
-			if (head.value != num) {
+		while (head != null) {//注意这里是while：因为可能存在多个待删除的节点都集中在头部
+			if (head.value != num) {//如果头结点不是要删除的值，那么头至少是定下来了
 				break;
 			}
 			head = head.next;

@@ -23,11 +23,11 @@ public class Code06_BSAwesome {
 		int mid = 0;
 		while (left < right) {
 			mid = (left + right) / 2;
-			if (arr[mid] > arr[mid - 1]) {
+			if (arr[mid] > arr[mid - 1]) {//往较小的值的方向前进，缩小范围
 				right = mid - 1;
-			} else if (arr[mid] > arr[mid + 1]) {
+			} else if (arr[mid] > arr[mid + 1]) {//往较小的值的方向前进，缩小范围
 				left = mid + 1;
-			} else {
+			} else { //根据这一步的条件来确定前面两个的条件
 				return mid;
 			}
 		}

@@ -9,7 +9,7 @@ package class12;
  *
  * 思路；从左往右，某个物品要还是不要
  * maxValue是经典的递归方法 -> process(int[] w, int[] v, int index, int rest)
- * 要清楚的直到递归函数的含义: process(int[] w, int[] v, int index, int rest) -> 对index做出决策后(要还是不要)，后续一坨带来的最大价值
+ * 要清楚的知道递归函数的含义: process(int[] w, int[] v, int index, int rest) -> 对index做出决策后(要还是不要)，后续一坨带来的最大价值
  *
  * 通过因为base-case是if (index == w.length) return 0;
  * 且index的值是依赖于index+1的值：int p1 = process(w, v, index + 1, alreadyW, bag);

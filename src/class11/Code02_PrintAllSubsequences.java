@@ -3,7 +3,7 @@ package class11;
 /*
 * 打印字符数组的所有子序列
 * 注意子序列不是排列组合，因为子序列必须是按照元字符已有的顺序从前到后去组合
-* 如：[w, a, c, d]，wa是，wa就不是
+* 如：[w, a, c, d]，wa是，wc就不是
 * 进一步细化，可以分解为每一个元素选或不选的子过程 -> 迭代
 * 递归参数开始可能不容易那么快确定，当你感觉无法实现问题的时候就不断添加，修正
 * 不一定一下子就能确定
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class Code02_PrintAllSubsquences {
+public class Code02_PrintAllSubsequences {
 
 	public static List<String> subs(String s) {
 		char[] str = s.toCharArray();

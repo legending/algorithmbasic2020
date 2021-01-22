@@ -1,7 +1,7 @@
 package class08;
 
 /*
-* 判断二叉树是否是平衡树
+* 判断二叉树是否是平衡树：任意节点的左右子树高度差不超过1，且左右子树的依然是平衡二叉树
 * */
 
 public class Code01_IsBalanced {

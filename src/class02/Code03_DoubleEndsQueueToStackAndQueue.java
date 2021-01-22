@@ -4,6 +4,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+/*
+* 栈、队列本质上是一样的：可以用一个双向链表实现
+* （1）头进尾出（或尾进头出）=》队列
+* （2）尾进尾出（或头进头出）=》栈
+* */
+
 public class Code03_DoubleEndsQueueToStackAndQueue {
 
 	public static class Node<T> {

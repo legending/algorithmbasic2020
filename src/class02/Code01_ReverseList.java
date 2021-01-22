@@ -33,7 +33,7 @@ public class Code01_ReverseList {
 		Node pre = null;
 		Node next = null;
 		while (head != null) {
-			next = head.next;
+			next = head.next;//用于循环
 			head.next = pre;
 			pre = head; //用于循环，相当于i++
 			head = next; //用于循环，相当于i++

@@ -1,6 +1,7 @@
 package class01;
 
 import java.util.Arrays;
+import java.util.Date;
 
 /*
 * 查找有序数组中是否存在某个值
@@ -30,7 +31,8 @@ public class Code04_BSExist {
 				L = mid + 1;
 			}
 		}
-		return sortedArr[L] == num;
+		System.out.println("len:" + sortedArr.length + ", L:" + L + ", R:" + R + ", " + (sortedArr[L] == num));
+		return sortedArr[L] == num;//为什么不是 sortedArr[R] == num   => 因为最后要么是L,要么是R，但如果取R（mid-1）可能为负
 	}
 	
 	// for test
@@ -54,6 +56,7 @@ public class Code04_BSExist {
 	}
 	
 	public static void main(String[] args) {
+		System.out.println(new Date());
 		int testTime = 500000;
 		int maxSize = 10;
 		int maxValue = 100;

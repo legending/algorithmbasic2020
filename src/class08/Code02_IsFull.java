@@ -1,7 +1,7 @@
 package class08;
 
 /*
-* 判断二叉树是否是满二叉树
+* 判断二叉树是否是满二叉树：树的高度为n，节点数为2^n-1的二叉树
 * */
 
 public class Code02_IsFull {

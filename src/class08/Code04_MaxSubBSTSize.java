@@ -3,7 +3,7 @@ package class08;
 import java.util.ArrayList;
 
 /*
-* 最大子搜索树有多少个节点
+* 最大子搜索二叉树有多少个节点
 * */
 
 public class Code04_MaxSubBSTSize {
